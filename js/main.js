@@ -3,8 +3,10 @@ var gl;
 function initGL(canvas) {
     try {
         gl = canvas.getContext("webgl2");
-        gl.canvas.width = document.getElementById("canvas-001").offsetWidth;
-        gl.canvas.height = document.getElementById("canvas-001").offsetHeight;
+        //gl.canvas.width = document.getElementById("canvas-001").offsetWidth;
+        //gl.canvas.height = document.getElementById("canvas-001").offsetHeight;
+        gl.canvas.width = window.innerWidth * 0.75;
+        gl.canvas.height = window.innerHeight * 1.1;
         gl.viewportWidth = canvas.width;
         gl.viewportHeight = canvas.height;
     } catch (e) {
@@ -524,6 +526,12 @@ function webGLStart() {
     }, false);
     canvas.addEventListener('mouseup', function (evt) {
        isMouseDown = false;
+    }, false);
+    window.addEventListener('resize', function () {
+       gl.canvas.width = window.innerWidth * 0.75;
+        gl.canvas.height = window.innerHeight * 1.1;
+        gl.viewportWidth = canvas.width;
+        gl.viewportHeight = canvas.height;
     }, false);
 
     canvas.addEventListener('mousewheel', function (evt) {

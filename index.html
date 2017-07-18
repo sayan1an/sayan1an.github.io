@@ -16,9 +16,8 @@
     <script type="text/javascript" src="js/gl-matrix-new.js"></script>
     <script type="text/javascript" src="js/webgl-utils.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-     <script type="text/javascript">
+    
+    <script type="text/javascript">
         function getSamples() {
             miscBuffer[22] = $("#samplesSlider").slider('getValue');
             console.log(miscBuffer[22]);
@@ -80,16 +79,30 @@
             getPower();
             getScheme();
         });
+        
     </script>
 </head>
 
 <body onload="webGLStart();">
-    <canvas id="canvas-001"></canvas>
-
-    <div id="controls" class="container">
-        </br>
+    <div class="container-fluid" style="background-color:black;">
         <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-3">
+                <h1 style="color:grey">Welcome,</h1>
+                <h3 style="color:grey">Sayantan Datta's webpage</h3>
+                <div class="well" style="background-color:black;">
+                    <div class="row">
+                        <div class="col-sm-4"><img src="self.jpg"  class="img-rounded img-responsive" alt="Cinque Terre" width="150px" height="200px"></div>
+                        <div class="col-sm-8">
+                            <h4 style="color:grey">About me:</h4>
+                            <p style="color:grey">I am doing my Master's research in Physically Based Rendering and Animation at McGill University.</p>
+                        </div>
+                    </div>
+                    </br>
+                    <span class="label label-default" style="margin-right:0.5em">Email:</span>
+                    <p style="color:grey">sayantan.datta@mail.mcgill.ca</p>
+                    <button type="button" class="btn btn-primary img-responsive">Continue  >></button>
+                </div>
+               
                 <div class="well" style="background-color:black;">
                     <label class="radio-inline"><input id="scheme" type="radio" name="optradio" checked onclick="getScheme()"><span class="label label-default" style="margin-right:1em">Biased</span></label>
                     <label class="radio-inline"><input type="radio" name="optradio" onclick="getScheme()"><span class="label label-default" style="margin-right:1em">Unbiased</span></label>
@@ -112,34 +125,15 @@
 
                     </br></br>    
                     <label class="checkbox" style="margin-left:1.5em"><input id="cameraPan" type="checkbox" onclick="getCameraPan()" /> <h5 style="color:white;"><span class="label label-default">Camera pan</span></h5> </label>
-                              
                 </div>
+                            
             </div>
-        </div>  
+            <div class="col-sm-9">
+                <canvas id="canvas-001"></canvas>
+            </div>
+        </div>
     </div>
    
-   <div id="others" class="container" style="background-color:black;">
-        <h1 style="color:grey">Welcome,</h1>
-        <div class="well" style="background-color:black;"> 
-            <h3 style="color:grey">Sayantan Datta's webpage</h3>
-            <div class="row">
-                <div class="col-sm-5">
-                    <img src="self.jpg"  class="img-rounded img-responsive" alt="Cinque Terre">
-                </div>
-                <div class="col-sm-5">
-                    <h3 style="color:grey">About me:</h3>
-                    <p style="color:grey">I am doing my Master's research in the Physically Based Rendering and Animation at McGill University.</p>
-                </div>        
-            </div>
-            </br>
-            <p style="color:grey"><span class="label label-default" style="margin-right:0.5em">Email:</span>sayantan.datta@mail.mcgill.ca</p>
-            
-            
-        </div>
-        <button type="button" class="btn btn-primary btn-lg">Continue  >></button>
-         
-   </div>
-
 </body>
 
 </html>
