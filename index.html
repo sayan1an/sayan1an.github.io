@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Welcome &mdash; Sayantan Datta</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap-slider.min.css">
+    <script type="text/javascript" src="js/bootstrap-slider.min.js"></script>
+
+    <script type="text/javascript" src="js/gl-matrix-new.js"></script>
+    <script type="text/javascript" src="js/webgl-utils.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+
+     <script type="text/javascript">
+        function getSamples() {
+            miscBuffer[22] = $("#samplesSlider").slider('getValue');
+            console.log(miscBuffer[22]);
+        }
+
+        function getRoughness() {
+            miscBuffer[19] = $("#roughnessSlider").slider('getValue');
+            console.log(miscBuffer[19]);
+        }
+
+        function getSpecular() {
+            miscBuffer[20] = $("#specularSlider").slider('getValue');
+            console.log(miscBuffer[20]);
+        }
+
+        function getPower() {
+            miscBuffer[18] = $("#powerSlider").slider('getValue');
+            console.log(miscBuffer[18]);
+        }
+
+        function getScheme() {
+            miscBuffer[23] = $("#scheme").is(':checked') ? 1.0 : 0.0;
+            console.log(miscBuffer[23]);
+        }
+
+        function getCameraPan() {
+            cameraPan = $("#cameraPan").is(':checked');
+            console.log(cameraPan);
+        }
+           
+        $(document).ready(function () {
+            $('#samplesSlider').slider({
+                formatter: function (value) {
+                    return value;
+                }
+            });
+
+            $('#roughnessSlider').slider({
+                formatter: function (value) {
+                    return value;
+                }
+            });
+
+            $('#specularSlider').slider({
+                formatter: function (value) {
+                    return value;
+                }
+            });
+
+            $('#powerSlider').slider({
+                formatter: function (value) {
+                    return value;
+                }
+            });
+
+            getSamples();
+            getRoughness();
+            getSpecular();
+            getPower();
+            getScheme();
+        });
+    </script>
+</head>
+
+<body onload="webGLStart();">
+    <canvas id="canvas-001"></canvas>
+
+    <div id="controls" class="container">
+        </br>
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="well" style="background-color:black;">
+                    <label class="radio-inline"><input id="scheme" type="radio" name="optradio" checked onclick="getScheme()"><span class="label label-default" style="margin-right:1em">Biased</span></label>
+                    <label class="radio-inline"><input type="radio" name="optradio" onclick="getScheme()"><span class="label label-default" style="margin-right:1em">Unbiased</span></label>
+                    
+                    </br></br>
+                    <h5 style="color:white;"><span class="label label-default">Samples</span></h5>
+                    <input id="samplesSlider" data-slider-id='ex1Slider' type="text " data-slider-min="1" data-slider-max="100" data-slider-step="1" data-slider-value="2" onchange="getSamples()"/>
+                
+                    </br></br>
+                    <h5 style="color:white;"><span class="label label-default">Roughness</span></h5>
+                    <input id="roughnessSlider" data-slider-id="ex1Slider" type="text" data-slider-min="0.01" data-slider-max="0.25" data-slider-step="0.01" data-slider-value="0.02" onchange="getRoughness()"/>
+
+                    </br></br>
+                    <h5 style="color:white;"><span class="label label-default">Specular</span></h5>
+                    <input id="specularSlider" data-slider-id="ex1Slider" type="text" data-slider-min="0.01" data-slider-max="1.0" data-slider-step="0.01" data-slider-value="0.1" onchange="getSpecular()"/>
+                
+                    </br></br>
+                    <h5 style="color:white;"><span class="label label-default">Power</span></h5>
+                    <input id="powerSlider" data-slider-id="ex1Slider" type="text" data-slider-min="0.01" data-slider-max="1.0" data-slider-step="0.01" data-slider-value="0.12" onchange="getPower()"/>
+
+                    </br></br>    
+                    <label class="checkbox" style="margin-left:1.5em"><input id="cameraPan" type="checkbox" onclick="getCameraPan()" /> <h5 style="color:white;"><span class="label label-default">Camera pan</span></h5> </label>
+                              
+                </div>
+            </div>
+        </div>  
+    </div>
+   
+   <div id="others" class="container" style="background-color:black;">
+        <h1 style="color:grey">Welcome,</h1>
+        <div class="well" style="background-color:black;"> 
+            <h3 style="color:grey">Sayantan Datta's webpage</h3>
+            <div class="row">
+                <div class="col-sm-5">
+                    <img src="self.jpg"  class="img-rounded img-responsive" alt="Cinque Terre">
+                </div>
+                <div class="col-sm-5">
+                    <h3 style="color:grey">About me:</h3>
+                    <p style="color:grey">I am doing my Master's research in the Physically Based Rendering and Animation at McGill University.</p>
+                </div>        
+            </div>
+            </br>
+            <p style="color:grey"><span class="label label-default" style="margin-right:0.5em">Email:</span>sayantan.datta@mail.mcgill.ca</p>
+            
+            
+        </div>
+        <button type="button" class="btn btn-primary btn-lg">Continue  >></button>
+         
+   </div>
+
+</body>
+
+</html>
