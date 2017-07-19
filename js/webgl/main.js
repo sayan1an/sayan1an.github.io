@@ -536,6 +536,8 @@ function webGLStart() {
 
     canvas.addEventListener('mousewheel', function (evt) {
        cameraDistance -= event.wheelDelta / 120;
+       // Necessary for detecting mouse wheel when scroll is enabled on webpage.
+       return false;
     }, false);
     initGL(canvas);
     initShaders();
