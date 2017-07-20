@@ -52,6 +52,13 @@ of those sections to manage the look and feel of the site. */
     background: #fff;
 }
 
+.work-section {
+    height: 300%;
+    padding-top: 150px;
+    text-align: center;
+    background: #fff;
+}
+
 .cv-section {
     height: 100%;
     padding-top: 150px;
