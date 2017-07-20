@@ -31,7 +31,7 @@
 <body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation" style="background-color:olive;">
         <div class="container">
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -40,7 +40,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">Home</a>
+                <a class="navbar-brand page-scroll" href="#page-top" style="color:#9ca7ba;">Home</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,13 +51,13 @@
                         <a class="page-scroll" href="#page-top"></a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#education">Education</a>
+                        <a class="page-scroll" href="#education" style="color:#9ca7ba;">Education</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#projects">Projects</a>
+                        <a class="page-scroll" href="#projects" style="color:#9ca7ba;">Projects</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#cv">CV</a>
+                        <a class="page-scroll" href="#cv" style="color:#9ca7ba;">CV</a>
                     </li>
                 </ul>
             </div>
@@ -84,12 +84,12 @@
                     <h6 style="color:#9ca7ba">Room 528, McConnel Engineering Building, McGill University</h6>
                 </div>
                 <div class="col-sm-10" style="background-color:#9ca7ba; height:650px;">
-                    <h5 align="left">I am a Compter Graphics student at McGill University. I joined McGill in September, 2016 and before that I worked 
+                    <h5 align="left">I am a Computer Graphics student at McGill University. I joined McGill in September 2016 and before that I worked 
                         three years in a Power Plant working in various roles including instrumentation(primary), networking and security and web development. I completed my
                         Bachelor's in 2013 in Electronics and Communication Engineering from National Institute of Technology, Durgapur, India. I had interest in graphics since
-                        I was an undergrad when I taught myself old OpenGL and also enjoyed the EdX Course in Computer Graphics by Prof. Ramamoorthi. I also have
+                        I was an undergrad when I taught myself old OpenGL and enjoyed the EdX Course in Computer Graphics by Prof. Ramamoorthi. I also have
                         this weird fascination for GPUs - probably because I couldn't play Crysis on my PC during my school days :P. So, I learned OpenCL and started contributing
-                        towards open source project John-The-Ripper where I built several GPU accelarated cryptography algorithms. 
+                        towards open source project John-The-Ripper where I built several GPU accelerated cryptography algorithms. 
                     </h5>
                     </br>
                     <h5 align="left">My current research:</h5>
@@ -100,7 +100,7 @@
                             and improving convergence in path tracing and global illumination.</h5></li>
                     </ul>
                     </br>
-                    <h5 align="left">My other intersts are:</h5>
+                    <h5 align="left">My other interests are:</h5>
                     <ul align="left">
                         <li><h5 align="left">Exploring Deep Learning and Reinforcement Learning methods for noise/variance reduction in path tracing and character animation.</h5></li>
                         <li><h5 align="left">GPU programming and shader development.</h5></li>
@@ -109,7 +109,7 @@
                     <h5 align="left">Skills:</h5>
                     <ul align="left">
                         <li><h5 align="left">Languages and APIs(Arranged in decreasing level of confidence): C, C++, OpenCL, Java, OpenGL/WebGL, Python, Cuda, JavaScript, Vulkan, Bash</h5></li>
-                        <li><h5 align="left">Softwares and libraries: Matlab, Bullet SDK, Ogre 3D, Latex, Git</h5></li>
+                        <li><h5 align="left">Software and libraries: Matlab, Bullet SDK, Ogre 3D, Latex, Git</h5></li>
                     </ul>
                     </br>
                     <h5 align="left">Graduate Supervisors:</h5>
@@ -135,7 +135,7 @@
 					</br>
 					<h4>McGill University, Montreal, Canada</h4>
 					<h5>MSc, Computer Science - Thesis</h5>
-					<h5>September, 2016 - Present</h5>
+					<h5>September 2016 - Present</h5>
                 </div>
             </div>
             <div class="row">
@@ -147,7 +147,7 @@
 					</br>
 					<h4>National Institute of Technology, Durgapur, India</h4>
 					<h5>Bachelor of Technology, Electronics and Communication Engineering</h5>
-					<h5>July, 2009 - July, 2013</h5>
+					<h5>July 2009 - July 2013</h5>
                 </div>
             </div>
         </div>
@@ -162,19 +162,73 @@
                     <ol>
                         <h4 align="left"><li>Tesseract Demo</li></h4>
                         <p  align="left">I built this WebGL demo for learning WebGL 2.0 which is more similar to modern OpenGL 4+. Each cube contains 2000 animated textured elements blended together to give a glowing look. The 
-                        floor is shaded using GGX BRDF by uniformly sampling 6000 animated light sources. You can see the moving specular highlights on the floor. I also used instancing and 2D texure as general 
-                        purpose buffer.</p>
-                        <button type="button" onclick="location.href = 'index.html';" class="btn btn-primary img-responsive">Launch Demo  >></button>
-                        <h4 align="left"><li>Tesseract Demo</li></h4>
-                        <p  align="left">I built this WebGL demo for learning WebGL 2.0 which is more similar to modern OpenGL 4+. Each cube contains 2000 animated textured elements blended together to give a glowing look. The 
-                        floor is shaded using GGX BRDF by uniformly sampling 6000 animated light sources. You can see the moving specular highlights on the floor. I also used instancing and 2D texure as general 
-                        purpose buffer.</p>
-                        <button type="button" onclick="location.href = 'index.html';" class="btn btn-primary img-responsive">Launch Demo  >></button>  
+                        floor is shaded using GGX BRDF by uniformly sampling 6000 animated light sources. You can see the moving specular highlights on the floor. I also used instancing and 2D texture as buffers.</p>
+                        <button type="button" onclick="location.href = 'index.html';" target="_blank" class="btn btn-primary img-responsive">Launch Demo  >></button>
 
-                    </ol> 
-                    
+                        <h4 align="left"><li>Real Time Rigid Body Collisions on GPU</li></h4>
+                        <p  align="left">This is my class project for Computer Animation course. I used Bullet for discrete collision detection and used my own solver implemented on GPU for collision resolution.</p>
+                        <button type="button" onclick="location.href = 'https://github.com/Sayantan2048/Tango.git';" target="_blank" class="btn btn-primary img-responsive">Full Report  >></button>
+                        <div>
+                            </br>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/e5cPB-T38BQ" frameborder="0" allowfullscreen></iframe>
+                            <h5> <b>Few Objects</b></h5>
+                        </div>
+                        <div>
+                            </br>
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/Q7vJLqXqCxM" frameborder="0" allowfullscreen></iframe>
+                            <h5> <b>Many Objects</b></h5>
+                        </div>
 
-                      
+                        <h4 align="left"><li>Pathtracer </li></h4>
+                        <p  align="left">I implemented this Pathtracer as part of Image Synthesis course. The tracer supports Explicit Path Tracing, BVH accelerator, BRDFs like GGX, Beckmann, Phong(Microfacet),
+                            Phong(Classic), BRDF sampling for all the mentioned BRDFs, Sphere and Area light sampling, Environment map sampling and Multiple Importance Sampling. I also implemented an analytic integrator based
+                            on Linearly Transformed Cosines paper.
+                        </p>
+                        <button type="button" onclick="location.href = 'https://github.com/Sayantan2048/ChakumRender.git';" target="_blank" class="btn btn-primary img-responsive">Source Link  >></button>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                </br>
+                                <figure>
+                                    <img src="logos/image_10surface.png"  class="img-rounded" height="348px" width="512px"/>
+                                    <figcaption>FigA: 10 samples of Light importance sampling on materials with varying roughness. </figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-6">
+                                </br>
+                                <figure>
+                                    <img src="logos/image_60brdf.png"  class="img-rounded" height="348px" width="512px"/>
+                                    <figcaption>FigB: 60 samples of BRDF importance sampling on materials with varying roughness. </figcaption>
+                                </figure>   
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                </br>
+                                <figure>
+                                    <img src="logos/image_MIS_60Brdf_10Surf.png"  class="img-rounded" height="348px" width="512px"/>
+                                    <figcaption>FigC: MIS of Fig A and Fig B.</figcaption>
+                                </figure>
+                            </div>
+                            <div class="col-sm-6">
+                                </br>
+                                <figure>
+                                    <img src="logos/image_analyticImage.png"  class="img-rounded" height="348px" width="512px"/>
+                                    <figcaption>FigD: Analytic integration using Linearly Transformed Cosines. </figcaption>
+                                </figure>    
+                            </div>
+                        </div>
+
+                        <h4 align="left"><li>John-The-Ripper</li></h4>
+                        <p  align="left">John-The-Ripper is an open-source password security auditing tool used by system administrators for recovering lost passwords. My main contributions were mask mode password generation 
+                            on GPU and a lookup table- which requires exactly two memory access for checking cryptography hashes on GPU. My work speeds up the hash rate by a factor of 100x-1000x for fast hashes. Previously passwords 
+                            were generated on CPU which had to be transferred to the GPU for processing and then fetched back from GPU for checking. Now both generation and checking are done on GPUs eliminating the latencies involved in
+                            the process.
+                        </p>
+                        <p>
+                            <button type="button" onclick="location.href = 'https://github.com/Sayantan2048/perfect_hash_table.git';" target="_blank" class="btn btn-primary img-responsive">Standalone Hash Table code >></button>
+                            <button type="button" onclick="location.href = 'https://github.com/magnumripper/JohnTheRipper.git';" target="_blank" class="btn btn-primary img-responsive">John-The-Ripper >></button>
+                        </p>      
+                    </ol>
                 </div>
             </div>
         </div>
