@@ -6,15 +6,38 @@
 # Abstract
 
 <i>Fun In Flatland</i> is an API to facilitate the prototyping of 2D raytracing algorithms. It provides the basic infrastructure required to create a scene such as materials, objects and camera along with their intersection routines. One important aspect of the API is that all objects, camera and math primitives such as points, vectors, normals, and rays can be visualized.</p>
-# Dependencies and setup
+# Dependencies
 
-TODO
+* Turtle - for visulizations
+* Pillow - for saving images
+* Numpy
 
-# Demos
+# Example use cases
 
-TODO
+Following are some example use cases for the API.
 
+## Error in approximating visibility
 
+$$I = \int V(\theta)L(\theta)d\theta$$
+$$I_{approx} = \int V(\theta)d\theta \int L(\theta)d\theta$$
+
+where, $V$ is the visibility function at a shade point.
+
+The following plots shows the distribution of error over the incident directions for varying view angles and scene configuarations.
+
+| Scene | Error plot |
+|:-----:|:----------:|
+| ![](images/fifl/Test5setup.png)| ![](images/fifl/Test5.png) |
+| ![](images/fifl/Test6setup.png)| ![](images/fifl/Test6.png) |
+| ![](images/fifl/Test7setup.png)| ![](images/fifl/Test7.png) |
+| ![](images/fifl/Test8setup.png)| ![](images/fifl/Test8.png) |
+| ![](images/fifl/Test9setup.png)| ![](images/fifl/Test9.png) |
+
+## Visibilty spectrum in Flatland
+
+The video shows the visibility function and its spectrum as we change the emitter orientation.
+  
+<iframe style="border-radius: 10px;" width="403" height="227" src="https://www.youtube.com/embed/y4aCRFD5Jls" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 <style class="fallback">body{visibility:hidden}</style><script>markdeepOptions={tocStyle:'medium'};</script>
 <!-- Markdeep: --><script src="https://casual-effects.com/markdeep/latest/markdeep.min.js?" charset="utf-8"></script>
