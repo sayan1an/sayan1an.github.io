@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sayantan's webpage">    <title>Sayantan's webpage</title>    
+    <meta name="description" content="Sayantan's Neural Shadow Mapping page">    <title>Neural Shadow Mapping</title>    
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="css/layouts/side-menu.css">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
@@ -41,7 +41,29 @@
             <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Abstract</h2>
             <p style="text-align:justify;">We present a neural extension of basic shadow mapping for fast, high quality hard and soft shadows. We compare favorably to fast pre-filtering shadow mapping, all while producing visual results on par with ray traced hard and soft shadows. We show that combining memory bandwidth-aware architecture specialization and careful temporal-window training leads to a fast, compact and easy-to-train neural shadowing method. Our technique is memory bandwidth conscious, eliminates the need for post-process temporal anti-aliasing or denoising, and supports scenes with dynamic view, emitters and geometry while remaining robust to unseen objects.</p>
             
-            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Downloads</h2>
+            <h2 class="content-subhead" style="margin-top: 10px; margin-bottom: 30px; color:#001f3f;">Comparision</h2>
+            <div class="juxtapose">
+                <img src="images/neuralShadowMapping/ours_0.jpg" data-label="Ours"/>
+                <img src="images/neuralShadowMapping/msm_0.jpg" data-label="MSM-9"/>
+            </div>
+            <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+            <style>
+                a.jx-knightlab div.knightlab-logo {
+                    visibility: hidden;
+                    display: none;
+                }
+                a.jx-knightlab span.juxtapose-name {
+                    visibility: hidden;
+                    display: none;
+                }
+                div.jx-slider {
+                    color: #486fb6;
+                }
+            </style>
+    
+
+            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f;">Downloads</h2>
             <p>
                 Paper pre-print: <a href="pdfs/neuralShadowMapping.pdf" style="text-decoration: none;">neuralShadowMapping.pdf (3.3MB)</a><br>
                 Supplemental: <a href="pdfs/neuralShadowMappingSupplemental.pdf" style="text-decoration: none;">neuralShadowMappingSupplemental.pdf (2.3MB)</a><br>
