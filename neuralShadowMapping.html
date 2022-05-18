@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sayantan's webpage">    <title>Sayantan's webpage</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/layouts/side-menu.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-4"></div>
+    <div id="main" class="pure-u-1 pure-u-md-2-4">
+        <div class="header">
+            <div class="pure-menu pure-menu-horizontal">
+                <h1>Neural Shadow Mapping</h1>
+                <h4 style="margin-top: 6px; text-align: center; font-size: medium;margin-bottom: 6px;">(In SIGGRAPH '22 Conference Proceedings)</h4>
+            </div>
+            <div class="pure-menu pure-menu-horizontal">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Sayantan Datta</a></li>
+                    <li class="pure-menu-item"><a href="https://www.cim.mcgill.ca/~derek/" class="pure-menu-link">Derek Nowrouzezahrai</a></li>
+                    <li class="pure-menu-item"><a href="https://scholar.google.ca/citations?user=STYtYHwAAAAJ&hl=en&oi=ao" class="pure-menu-link">Christoph Schied</a></li>
+                    <li class="pure-menu-item"><a href="http://flycooler.com/" class="pure-menu-link">Zhao Dong</a></li>
+                </ul>
+            </div>
+            
+        </div>
+
+        <div class="content">
+            <div>
+                <figure>
+                    <img src="images/neuralShadowMapping/teaser2L.png" style ="position:relative; right:70px;"/>
+                    <figcaption style="text-align:justify; width: 800px; position:relative; right:40px;" >Our hard and soft shadowing method approaches the quality of offline ray tracing whilst striking a favorable position on the performance-accuracy spectrum. On the high-performance end, we produce higher quality results than 𝑛 × 𝑛 Moment Shadow Maps (MSM-𝑛).We require only vanilla shadow mapping inputs to generate visual (and temporal) results that approach ray-traced reference, surpassing more costly denoised interactive ray-traced methods.</figcaption>
+                </figure>
+            </div>
+            
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Abstract</h2>
+            <p style="text-align:justify;">We present a neural extension of basic shadow mapping for fast, high quality hard and soft shadows. We compare favorably to fast pre-filtering shadow mapping, all while producing visual results on par with ray traced hard and soft shadows. We show that combining memory bandwidth-aware architecture specialization and careful temporal-window training leads to a fast, compact and easy-to-train neural shadowing method. Our technique is memory bandwidth conscious, eliminates the need for post-process temporal anti-aliasing or denoising, and supports scenes with dynamic view, emitters and geometry while remaining robust to unseen objects.</p>
+            
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Downloads</h2>
+            <p>
+                Paper pre-print: <a href="pdfs/neuralShadowMapping.pdf" style="text-decoration: none;">neuralShadowMapping.pdf (3.3MB)</a><br>
+                Supplemental: <a href="pdfs/neuralShadowMappingSupplemental.pdf" style="text-decoration: none;">neuralShadowMappingSupplemental.pdf (2.3MB)</a><br>
+                Video: <a href="https://drive.google.com/file/d/1xfWI5ezigp2Ztvd7lSpLOt4O8PAqSCQ3/view?usp=sharing" style="text-decoration: none;">gDrive (MP4, 902MB)</a><br>
+                Bibtex: <a href="" style="text-decoration: none;">nsm.bib</a>
+            </p>
+
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Acknowledgements</h2>
+            <p style="text-align:justify;">We thank the reviewers for their constructive feedback, the ORCA for the Amazon Lumberyard Bistro model, the Stanford CG Lab for the Bunny, Buddha, and Dragon models, Marko Dabrovic for the Sponza model and Morgan McGuire for the Bistro, Conference and Living Room models. This work was done when Sayantan was an intern at Meta Reality Labs Research. While at McGill University, he was also supported by a Ph.D. scholarship from the <i>Fonds de recherche du Québec – nature et technologies</i>.</p>
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-4"></div>
+</div>
+
+<script src="js/ui.js"></script>
+
+</body>
+</html>
