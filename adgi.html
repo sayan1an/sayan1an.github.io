@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Sayantan's Adaptive Dynamic Global Illumination page">    <title>Adaptive Dynamic Global Illumination</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/layouts/side-menu.css">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+<div id="layout" class="pure-g">
+    <div class="pure-u-1 pure-u-md-1-4"></div>
+    <div id="main" class="pure-u-1 pure-u-md-2-4">
+        <div class="header">
+            <div class="pure-menu pure-menu-horizontal">
+                <h1>Adaptive Dynamic Global Illumination</h1>
+                <h4 style="margin-top: 6px; text-align: center; font-size: medium;margin-bottom: 6px;">(In High Performance Graphics '22 Poster)</h4>
+            </div>
+            <div class="pure-menu pure-menu-horizontal">
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="index.html" class="pure-menu-link">Sayantan Datta</a></li>
+                    <li class="pure-menu-item"><a href="https://people.ece.ubc.ca/negargoli93/" class="pure-menu-link">Negar Goli</a></li>
+                    <li class="pure-menu-item"><a href="https://www.linkedin.com/in/jzjerryzhang/" class="pure-menu-link">Jerry Zhang</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content">
+            <div>
+                <figure>
+                    <img src="images/adgi/teaserL.png" style ="position:relative; right:70px;"/>
+                    <figcaption style="text-align:justify; width: 800px; position:relative; right:40px;">Our technique demonstrated on a modified <em>BISTRO EXTERIOR</em> scene containing <em>192 x 64 x 192</em> probes. The third row shows the changes inside the tunnel as the gate opens over time. Our techniques responds faster to a dynamic stimuli and offers 1.7-times higher performance compared to the <em>Q-DDGI</em> implementation even with large probe grid containing excess of 2.3 million probes. <em>Q-DDGI</em>, detailed in section 5, is an extension of vanilla <em>DDGI</em> making it more competitive and comparable against our approach.</figcaption>
+                </figure>
+            </div>
+            
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Abstract</h2>
+            <p style="text-align:justify;">We present an adaptive extension of probe based global illumination solution that enhances the response to dynamic changes in the scene while while also enabling an order of magnitude increase in probe count. Our adaptive sampling strategy carefully places samples in regions where we detect time varying changes in radiosity either due to a change in lighting, geometry or both. Even with large number of probes, our technique robustly updates the irradiance and visibility cache to reflect the most up to date changes without stalling the overall algorithm. Our bandwidth aware approach is largely an improvement over the original <em>Dynamic Diffuse Global Illumination</em> while also remaining orthogonal to the recent advancements in the technique.</p>
+            
+            <h2 class="content-subhead" style="margin-top: 10px; margin-bottom: 30px; color:#001f3f;">Comparision</h2>
+            <div class="juxtapose">
+                <img src="images/adgi/ours.jpg" data-label="Ours"/>
+                <img src="images/adgi/qddgi.jpg" data-label="Q-DDGI"/>
+            </div>
+            <p style="text-align:justify;">Moving Buddha over glossy surface under ambient lighting. The reflections on the glossy floor from the moving object is missing in <em>Q-DDGI</em>.</p>
+            <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
+            <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
+            <style>
+                a.jx-knightlab div.knightlab-logo {
+                    visibility: hidden;
+                    display: none;
+                }
+                a.jx-knightlab span.juxtapose-name {
+                    visibility: hidden;
+                    display: none;
+                }
+                div.jx-slider {
+                    color: #486fb6;
+                }
+            </style>
+    
+
+            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f;">Downloads</h2>
+            <p>
+                Paper pre-print: <a href="pdfs/adgi_review.pdf" style="text-decoration: none;">adgi.pdf (2.7MB)</a><br>
+                Video: <a href="https://drive.google.com/file/d/19gNVIZWZoErEKzlr9V7Vj5fGHLhXrEuV/view?usp=sharing" style="text-decoration: none;">gDrive (MP4, 586MB)</a><br>
+                Bibtex: <a href="" style="text-decoration: none;">adgi.bib</a>
+            </p>
+
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Acknowledgements</h2>
+            <p style="text-align:justify;">We thank <em>Jing Huang</em> for her valuable feedback and helping us with the literature review. We also thank the reviewers for their constructive feedback, the ORCA for the Amazon Lumberyard Bistro model, the Stanford CG Lab for the Buddha model, and Morgan McGuire for the Crytek Sponza models. This work was supported by Huawei Vancouver CG labs and a Ph.D. scholarship from the <i>Fonds de recherche du Québec – nature et technologies</i>.</p>
+        </div>
+    </div>
+    <div class="pure-u-1 pure-u-md-1-4"></div>
+</div>
+
+<script src="js/ui.js"></script>
+
+</body>
+</html>
