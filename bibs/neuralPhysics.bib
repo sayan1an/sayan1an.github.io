@@ -1,0 +1,17 @@
+@inproceedings{10.1145/3309486.3340245,
+author = {Holden, Daniel and Duong, Bang Chi and Datta, Sayantan and Nowrouzezahrai, Derek},
+title = {Subspace Neural Physics: Fast Data-Driven Interactive Simulation},
+year = {2019},
+isbn = {9781450366779},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3309486.3340245},
+doi = {10.1145/3309486.3340245},
+abstract = {Data-driven methods for physical simulation are an attractive option for interactive applications due to their ability to trade precomputation and memory footprint in exchange for improved runtime performance. Yet, existing data-driven methods fall short of the extreme memory and performance constraints imposed by modern interactive applications like AAA games and virtual reality. Here, performance budgets for physics simulation range from tens to hundreds of micro-seconds per frame, per object. We present a data-driven physical simulation method that meets these constraints. Our method combines subspace simulation techniques with machine learning which, when coupled, enables a very efficient subspace-only physics simulation that supports interactions with external objects - a longstanding challenge for existing subspace techniques. We also present an interpretation of our method as a special case of subspace Verlet integration, where we apply machine learning to efficiently approximate the physical forces of the system directly in the subspace. We propose several practical solutions required to make effective use of such a model, including a novel training methodology required for prediction stability, and a GPU-friendly subspace decompression algorithm to accelerate rendering.},
+booktitle = {Proceedings of the 18th Annual ACM SIGGRAPH/Eurographics Symposium on Computer Animation},
+articleno = {6},
+numpages = {12},
+keywords = {model reduction, collision detection, machine learning, data-driven simulation, neural networks, cloth simulation},
+location = {Los Angeles, California},
+series = {SCA '19}
+}
