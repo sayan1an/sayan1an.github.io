@@ -33,18 +33,35 @@
         </div>
 
         <div class="content">
-            <!--
+            
             <div>
-                <figure>
-                    <img src="images/neuralShadowMapping/teaser2L.png" style ="position:relative; right:70px;"/>
-                    <figcaption style="text-align:justify; width: 800px; position:relative; right:40px;" >Our hard and soft shadowing method approaches the quality of offline ray tracing whilst striking a favorable position on the performance-accuracy spectrum. On the high-performance end, we produce higher quality results than 𝑛 × 𝑛 Moment Shadow Maps (MSM-𝑛).We require only vanilla shadow mapping inputs to generate visual (and temporal) results that approach ray-traced reference, surpassing more costly denoised interactive ray-traced methods.</figcaption>
-                </figure>
+                <video width="800"  style="margin-top: 10px;" autoplay loop playsinline muted>
+                    <source src="images/din/collageN.mp4" type="video/mp4">
+                </video>
+                <p style="text-align:justify; margin-top: 0px;"> Applications of <i>Differentiable indirection</i> across graphics pipeline.  From left to right, texture compression, SDF representation, texture filtering and parametric shading, and radiance field compression.               
+                </p>
             </div>
-            -->
+            
 
             <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Abstract</h2>
             <p style="text-align:justify;">We introduce <i>differentiable indirection</i> – a novel learned primitive that employs differentiable multi-scale lookup tables as an effective substitute for traditional compute and data operations across the graphics pipeline. We demonstrate its flexibility on a number of graphics tasks, i.e., geometric and image representation, texture mapping, shading, and radiance field representation. In all cases, differentiable indirection seamlessly integrates into existing architectures, trains rapidly, and yields both versatile and efficient results.</p>
             
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">What is Differentiable indirection?</h2>
+            <div>
+                <figure>
+                    <img src="images/din/din.png" width="820" style ="position:relative; right:45px;"/>
+                    <figcaption style="text-align:justify; width: 800px; position:relative; right:35px;" >Similar to a pointer indirection - we query a memory location that contains a pointer to a secondary location containing the final output. However, our pointer indirection is also differentiable, hence <i>Differentiable indirection</i>.</figcaption>
+                </figure>
+            </div>
+
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Why use Differentiable indirection?</h2>
+            <div>
+                <figure>
+                    <img src="images/din/din.png" width="820" style ="position:relative; right:45px;"/>
+                    <figcaption style="text-align:justify; width: 800px; position:relative; right:35px;" >For <b>efficincy</b>. </figcaption>
+                </figure>
+            </div>
+
             <!--
             <h2 class="content-subhead" style="margin-top: 10px; margin-bottom: 30px; color:#001f3f;">Comparision</h2>
             <div class="juxtapose">
