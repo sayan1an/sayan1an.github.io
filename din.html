@@ -41,7 +41,6 @@
                 <p style="text-align:justify; margin-top: 0px;"> Applications of <i>Differentiable indirection</i> across graphics pipeline.  From left to right, texture compression, SDF representation, texture filtering and parametric shading, and radiance field compression.               
                 </p>
             </div>
-            
 
             <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Abstract</h2>
             <p style="text-align:justify;">We introduce <i>differentiable indirection</i> – a novel learned primitive that employs differentiable multi-scale lookup tables as an effective substitute for traditional compute and data operations across the graphics pipeline. We demonstrate its flexibility on a number of graphics tasks, i.e., geometric and image representation, texture mapping, shading, and radiance field representation. In all cases, differentiable indirection seamlessly integrates into existing architectures, trains rapidly, and yields both versatile and efficient results.</p>
@@ -64,26 +63,42 @@
                 </figure>
             </div>
             
-            <h2 class="content-subhead" style="margin-top: 30px; margin-bottom: 30px; color:#001f3f;">Video description</h2>
+            <h2 class="content-subhead" style="margin-top: 10px; color:#001f3f;">Video description</h2>
             <div>
             <iframe style="border-radius: 0px;" width="800px" height="450" src="https://www.youtube.com/embed/VKMoTSGY4N4" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-          
+            </div>        
 
-            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f;">Downloads</h2>
-            <p>
-                Paper: <a href="pdfs/din.pdf" style="text-decoration: none;">differentiableIndirection.pdf</a><br>
-                Code: Coming Soon<br>
-                Video description: <a href="https://drive.google.com/file/d/1UBwwjMsZKx2Fmx58p_IWIpYHWFVjsffq/view?usp=sharing" style="text-decoration: none;">HQ (MP4, 3.7GB)</a> || <a href="https://drive.google.com/file/d/1jrHfI2ErdHQFkZK3_LeH3LECcxyGhSYt/view?usp=sharing" style="text-decoration: none;">LQ (MP4, 500MB)</a> || <a href="bibs/din_caption.srt" style="text-decoration: none;">Captions</a><br>
-                Bibtex: <a href="bibs/dinArxiv.bib" style="text-decoration: none;">arxiv.bib</a>
-            </p>
-
-            <!--
-            <h2 class="content-subhead" style="margin-top: 10px; margin-bottom: 30px; color:#001f3f;">Results & comparision</h2>
+            <h2 class="content-subhead" style="margin-top: 10px; color:#001f3f;">Results & comparision</h2>
             <div class="juxtapose">
-                <img src="images/neuralShadowMapping/ours_0.jpg" data-label="Ours"/>
-                <img src="images/neuralShadowMapping/msm_0.jpg" data-label="MSM-9"/>
+                <img src="images/din/sdf/oursPiano.jpg" data-label="Ours (24 MB)"/>
+                <img src="images/din/sdf/refPiano.jpg" data-label="Reference (12 GB)"/>
             </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >SDF representation using <i>differentiable indirection</i> compared with reference Kd-Tree with 1B surface sample points. SDF to mesh reconstruction for visualization using marching-cubes algorithm. </p>
+            <div class="juxtapose">
+                <img src="images/din/sdf/oursPiano.jpg" data-label="Ours (24 MB)"/>
+                <img src="images/din/sdf/mrhePiano.jpg" data-label="MRHE (24 MB)"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >SDF representation using <i>differentiable indirection</i> compared with MRHE with 8-Levels (6 Desne + 2 Hash) + MLP (4-hidden layer 16 wide). SDF to mesh reconstruction for visualization using marching-cubes algorithm.</p>
+            <div class="juxtapose">
+                <img src="images/din/images/6x.jpg" data-label="Ours (6x)"/>
+                <img src="images/din/images/ref.jpg" data-label="Reference (4K)"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >6x image compression using <i>differentiable indirection</i> compared with uncompressed 4K reference.</p>
+            <div class="juxtapose">
+                <img src="images/din/images/12x.jpg" data-label="Ours (12x)"/>
+                <img src="images/din/images/ref.jpg" data-label="Reference (4K)"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >12x image compression using <i>differentiable indirection</i> compared with uncompressed 4K reference.</p>
+            <div class="juxtapose">
+                <img src="images/din/images/24x.jpg" data-label="Ours (24x)"/>
+                <img src="images/din/images/ref.jpg" data-label="Reference (4K)"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >24x image compression using <i>differentiable indirection</i> compared with uncompressed 4K reference.</p>
+            <div class="juxtapose">
+                <img src="images/din/images/48x.jpg" data-label="Ours (48x)"/>
+                <img src="images/din/images/ref.jpg" data-label="Reference (4K)"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >48x image compression using <i>differentiable indirection</i> compared with uncompressed 4K reference.</p>
             <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
             <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
             <style>
@@ -99,7 +114,14 @@
                     color: #486fb6;
                 }
             </style>
-        -->
+
+            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f;">Downloads</h2>
+            <p>
+                Paper: <a href="pdfs/din.pdf" style="text-decoration: none;">differentiableIndirection.pdf</a><br>
+                Code: Coming Soon<br>
+                Video description: <a href="https://drive.google.com/file/d/1UBwwjMsZKx2Fmx58p_IWIpYHWFVjsffq/view?usp=sharing" style="text-decoration: none;">HQ (MP4, 3.7GB)</a> || <a href="https://drive.google.com/file/d/1jrHfI2ErdHQFkZK3_LeH3LECcxyGhSYt/view?usp=sharing" style="text-decoration: none;">LQ (MP4, 500MB)</a> || <a href="bibs/din_caption.srt" style="text-decoration: none;">Captions</a><br>
+                Bibtex: <a href="bibs/dinArxiv.bib" style="text-decoration: none;">arxiv.bib</a>
+            </p>
             
             <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f;">Acknowledgements</h2>
             <p style="text-align:justify;">We thank Cheng Chang, Sushant Kondguli, Anton Michels, Warren Hunt, and Abhinav Golas for their valuable input and the reviewers for their constructive feedback. We also thank Moshe Caine for the horse-model with <i>CC-BY-4.0</i> license, and <i>Adobe Substance-3D</i> for the <i>PBR</i> textures. This work was done when Sayantan was an intern at Meta Reality Labs Research. While at McGill University, he was also supported by a Ph.D. scholarship from the <i>Fonds de recherche du Québec -- nature et technologies.</i></p>
