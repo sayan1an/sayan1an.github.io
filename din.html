@@ -38,7 +38,7 @@
                 <video width="800"  style="margin-top: 10px;" autoplay loop playsinline muted>
                     <source src="images/din/collageN.mp4" type="video/mp4">
                 </video>
-                <p style="text-align:justify; margin-top: 0px;"> Applications of <i>Differentiable indirection</i> across graphics pipeline.  From left to right, texture compression, SDF representation, texture filtering and parametric shading, and radiance field compression. Go to Downloads.               
+                <p style="text-align:justify; margin-top: 0px;"> Applications of <i>Differentiable indirection</i> across graphics pipeline.  From left to right, texture compression, SDF representation, texture filtering and parametric shading, and radiance field compression. Go to <a href="#download">Downloads</a>.               
                 </p>
             </div>
 
@@ -129,6 +129,11 @@
                 <img src="images/din/shading/output_shRef.jpg" data-label="Reference"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Combined shading (our Disney), and texture filtering (12x compressed albedo and normal maps) using <i>differentiable indirection</i> compared with uncompressd anisotropic textures and analytic Disney shading.</p>
+            <div class="juxtapose">
+                <img src="images/din/nerf/ours_low_comp10.jpg" data-label="Ours (89 MB)"/>
+                <img src="images/din/nerf/ref_10.jpg" data-label="Reference (860 MB)"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Compressed NeRF representation (89 MB) using <i>differentiable indirection</i> compared with uncompressd voxel representation (860 MB) trained using <i>Direct Voxel</i> technique.</p>
             <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
             <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
             <style>
@@ -145,7 +150,7 @@
                 }
             </style>
 
-            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f;">Downloads</h2>
+            <h2 id="download" class="content-subhead" style="margin-top: 20px;color:#001f3f;">Downloads</h2>
             <p>
                 Paper: <a href="pdfs/din.pdf" style="text-decoration: none;">differentiableIndirection.pdf</a><br>
                 Code: Coming Soon<br>
