@@ -1,0 +1,425 @@
+1
+00:00:00,960 --> 00:00:03,800
+Hello, my name is Sayantan.
+
+2
+00:00:03,800 --> 00:00:07,600
+This is a work in collaboration with 
+Carl Marshall, Derek Nowrouzezahrai,
+
+3
+00:00:07,600 --> 00:00:11,240
+Zhao Dong, and Zhengqin Li.
+
+4
+00:00:11,240 --> 00:00:13,680
+We present a novel graphics primitive that uses
+
+5
+00:00:13,680 --> 00:00:18,080
+a network of memory instead of 
+connected layers of perceptrons.
+
+6
+00:00:18,080 --> 00:00:21,400
+One of the primary advantage of 
+using our technique is that it
+
+7
+00:00:21,400 --> 00:00:27,600
+makes inferencing more efficient compared 
+to traditional multi-layer perceptrons.
+
+8
+00:00:27,600 --> 00:00:31,920
+This paper shows a variety of application of 
+our technique in the context of neural graphics
+
+9
+00:00:31,920 --> 00:00:39,920
+pipeline, such as Textures, Signed Distance 
+Fields, Shading and Neural Radiance Fields.
+
+10
+00:00:39,920 --> 00:00:43,760
+We note that our technique is very 
+general and may extend easily to
+
+11
+00:00:43,760 --> 00:00:47,200
+other applications in graphics and beyond.
+
+12
+00:00:47,200 --> 00:00:50,320
+At a high level, our technique 
+blurs the line between learning
+
+13
+00:00:50,320 --> 00:00:54,960
+and memorization. We hope to spur more 
+interesting discussions and ideas in
+
+14
+00:00:54,960 --> 00:01:00,120
+this context and in the context 
+of neural networks in general.
+
+15
+00:01:00,120 --> 00:01:04,480
+Next, we introduce our technique 
+differentiable indirection. It is
+
+16
+00:01:04,480 --> 00:01:07,880
+similar to pointer indirection, 
+where we query a memory location
+
+17
+00:01:07,880 --> 00:01:12,680
+that points to another memory location 
+containing the final output. However,
+
+18
+00:01:12,680 --> 00:01:17,520
+in our case, we learn the pointer 
+values using gradient descent.
+
+19
+00:01:17,520 --> 00:01:20,840
+Both pointers and the outputs 
+are stored on multi-dimensional
+
+20
+00:01:20,840 --> 00:01:24,080
+regular grids. Since the array cells are discrete,
+
+21
+00:01:24,080 --> 00:01:29,840
+we linearly interpolate the neighbouring cells 
+to enable continuous output and backpropagation.
+
+22
+00:01:30,360 --> 00:01:34,440
+A key feature of such array is that 
+they are fully differentiable. That is,
+
+23
+00:01:34,440 --> 00:01:39,720
+we compute the gradient not only w.r.t to the 
+content of the table but also with respect to the
+
+24
+00:01:39,720 --> 00:01:46,200
+array coordinates. The latter enables learning 
+of the pointers as stored in the first array.
+
+25
+00:01:46,200 --> 00:01:47,920
+We call the first array primary,
+
+26
+00:01:47,920 --> 00:01:52,680
+as shown in orange, and the second 
+array as cascaded, highlighted in blue.
+
+27
+00:01:52,680 --> 00:02:00,080
+We use a combine primary and cascaded in a variety 
+of configuration to enable various applications.
+
+28
+00:02:00,080 --> 00:02:03,600
+To better understand our technique, 
+we highlight one simple application
+
+29
+00:02:03,600 --> 00:02:08,360
+of differentiable indirection in the 
+context the context of PBR shading.
+
+30
+00:02:08,360 --> 00:02:12,800
+Specular BRDF lobes are often 
+modelled using isotropic-GGX,
+
+31
+00:02:12,800 --> 00:02:16,520
+as described by the following 
+equation. The equation has two
+
+32
+00:02:16,520 --> 00:02:23,920
+scalar inputs alpha and h; and outputs 
+a single-channel, non-linear HDR value.
+
+33
+00:02:23,920 --> 00:02:28,680
+Here, we use differentiable indirection to 
+approximate the function. The two inputs
+
+34
+00:02:28,680 --> 00:02:35,360
+to the function are used as the coordinates to 
+sample the primary array; a 2D with 2-channels.
+
+35
+00:02:35,360 --> 00:02:39,320
+The primary array then returns the 2D 
+coordinates to sample the cascaded array;
+
+36
+00:02:39,320 --> 00:02:42,640
+which contains the final output.
+
+37
+00:02:42,640 --> 00:02:45,400
+In this slide, we visualize 
+the learned representation of
+
+38
+00:02:45,400 --> 00:02:53,200
+Isotropic-GGX as stored in the 
+primary and cascaded arrays.
+
+39
+00:02:53,200 --> 00:02:56,440
+Here, we compare the analytic 
+and approximate output on a
+
+40
+00:02:56,440 --> 00:03:04,520
+scene rendered with a variety of 
+sharp and diffuse specular lobes.
+
+41
+00:03:04,520 --> 00:03:08,320
+The following plot shows the 
+key takeaways of our approach.
+
+42
+00:03:08,320 --> 00:03:10,240
+We compare the resource utilization
+
+43
+00:03:10,240 --> 00:03:14,640
+for various alternative neural 
+architectures for the same task.
+
+44
+00:03:14,640 --> 00:03:18,200
+Note that our technique requires 
+fewer compute flops and memory
+
+45
+00:03:18,200 --> 00:03:26,200
+bandwidth compared to MLPs and lesser parameter 
+space compared to single level lookup-table.
+
+46
+00:03:26,200 --> 00:03:32,200
+Next, we next show a variety of other 
+applications of differentiable indirection.
+
+47
+00:03:32,200 --> 00:03:37,400
+We start with our SDF representation. 
+Our technique uses a 3D primary
+
+48
+00:03:37,400 --> 00:03:41,440
+and a 3D cascaded array.
+We query the primary with a
+
+49
+00:03:41,440 --> 00:03:45,600
+spatial coordinate and the representation 
+learns a mapping from spatial coordinates
+
+50
+00:03:45,600 --> 00:03:52,760
+to binary density, either a plus or a minus 1.
+Here, positive, and negative indicates exterior
+
+51
+00:03:52,760 --> 00:03:58,320
+and interior of a geometry respectively.
+The output of the representation is used
+
+52
+00:03:58,320 --> 00:04:03,200
+to construct a 3D mesh using 
+marching cubes algorithm.
+
+53
+00:04:03,200 --> 00:04:05,520
+The video compares a reference Kd-tree oracle
+
+54
+00:04:05,520 --> 00:04:09,920
+on left, with our technique and 
+multi-resolution hash-encoding.
+
+55
+00:04:09,920 --> 00:04:25,000
+Notice the piano keys and the space 
+between the two plates of the piano cover.
+
+56
+00:04:25,000 --> 00:04:29,600
+The next application uses differentiable 
+indirection for image compression.
+
+57
+00:04:30,360 --> 00:04:33,320
+Here we use uv-coordinates to query a 2D primary
+
+58
+00:04:33,320 --> 00:04:39,160
+with 4 channels while the cascaded is 
+4D array storing the output RGB values.
+
+59
+00:04:39,160 --> 00:04:42,920
+Our empirical observations show that 
+increasing the dimensionality of the
+
+60
+00:04:42,920 --> 00:04:48,080
+cascaded array improves the quality 
+of output at a given compression.
+
+61
+00:04:48,080 --> 00:05:00,000
+Here we show the output of our 
+technique at 6x compression.
+
+62
+00:05:00,000 --> 00:05:05,240
+Next, we make a small modification to the 
+compression-only network to also incorporate
+
+63
+00:05:05,240 --> 00:05:10,320
+texture sampling based on pixel footprint.
+The network additionally uses a
+
+64
+00:05:10,320 --> 00:05:16,320
+pixel-footprint estimate to output an 
+alias-free, LOD appropriate RGB output.
+
+65
+00:05:16,320 --> 00:05:23,040
+We show its application in regular 
+albedo textures and normal maps.
+
+66
+00:05:23,040 --> 00:05:27,280
+Notice how seamlessly we transition 
+from coarse LOD to fine LOD using
+
+67
+00:05:27,280 --> 00:05:41,905
+our technique while compressing the 
+representation by 6x at the same time.
+
+68
+00:05:41,905 --> 00:05:42,000
+We also perform a uv stress test comparing our 
+technique with ASTC nearest neighbor sampling.
+
+69
+00:05:42,000 --> 00:05:48,600
+Our technique produces slightly blurrier (refer to uncompressed video link at the end) results at coarse LODs closer to the distant horizon.
+
+70
+00:05:48,600 --> 00:05:56,120
+ASTC produces much nosier results 
+at comparable sample count.
+
+71
+00:05:56,120 --> 00:06:00,640
+Next application shows the approximation 
+of Disney BRDF using our approach.
+
+72
+00:06:00,640 --> 00:06:07,680
+Similar to isotropic GGX, Disney BRDF models the 
+appearance of a variety of complex materials.
+
+73
+00:06:07,680 --> 00:06:12,680
+In this application we split primary 
+and cascaded into an offline-encoder
+
+74
+00:06:12,680 --> 00:06:19,280
+and a runtime-decoder to improve efficiency.
+The offline encoder encodes artist-control
+
+75
+00:06:19,280 --> 00:06:25,680
+parameters, which are often stored as regular 
+textures into another set of encoded textures.
+
+76
+00:06:25,680 --> 00:06:29,400
+At runtime these encoded 
+textures are used by the decoder.
+
+77
+00:06:32,040 --> 00:06:35,600
+Again, we compare our technique 
+with the reference implementation.
+
+78
+00:06:38,960 --> 00:06:41,600
+Next, we show the an end-to-end combined texture
+
+79
+00:06:41,600 --> 00:06:59,400
+sampling and Disney shading 
+for two different scenes.
+
+80
+00:07:14,920 --> 00:07:20,200
+We move to our final application in 
+Radiance Field compression. Here,
+
+81
+00:07:20,200 --> 00:07:25,920
+we use two independent networks to compress 
+the density and the radiance field. Both
+
+82
+00:07:25,920 --> 00:07:31,080
+networks are queried by a 3D spatial
+coordinate, One outputs a scalar density
+
+83
+00:07:31,080 --> 00:07:35,560
+and the other a 12 channel latent 
+vector. The latent vector is then
+
+84
+00:07:35,560 --> 00:07:43,600
+combined with view-directions using positional 
+encoding to output a view dependent RGB color.
+
+85
+00:07:43,600 --> 00:07:48,240
+The video shows the comparison between 
+reference uncompressed grid on the top-left
+
+86
+00:07:48,240 --> 00:07:56,520
+and multi-resolution hash encoding 
+compressed grid on the bottom-left.
+
+87
+00:07:56,520 --> 00:07:59,120
+Thus we conclude our video demonstration.
+
+88
+00:07:59,680 --> 00:08:03,000
+Thank you for watching.
