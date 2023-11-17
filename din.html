@@ -70,70 +70,80 @@
 
             <h2 class="content-subhead" style="margin-top: 10px; color:#001f3f;">Results & comparision</h2>
             <div class="juxtapose">
-                <img src="images/din/sdf/oursPiano.jpg" data-label="Ours (24 MB)"/>
+                <img src="images/din/sdf/oursPiano.jpg" data-label="Ours (24 MB), IoU: 0.982"/>
                 <img src="images/din/sdf/refPiano.jpg" data-label="Reference (12 GB)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >SDF representation using <i>differentiable indirection</i> compared with reference Kd-Tree with 1B surface sample points. SDF to mesh reconstruction for visualization using marching-cubes algorithm. </p>
             <div class="juxtapose">
-                <img src="images/din/sdf/oursPiano.jpg" data-label="Ours (24 MB)"/>
-                <img src="images/din/sdf/mrhePiano.jpg" data-label="MRHE (24 MB)"/>
+                <img src="images/din/sdf/oursPiano.jpg" data-label="Ours (24 MB), IoU: 0.982"/>
+                <img src="images/din/sdf/mrhePiano.jpg" data-label="MRHE (24 MB), IoU: 0.977"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >SDF representation using <i>differentiable indirection</i> compared with MRHE with 8-Levels (6 Desne + 2 Hash) + MLP (4-hidden layer 16 wide). SDF to mesh reconstruction for visualization using marching-cubes algorithm.</p>
             <div class="juxtapose">
-                <img src="images/din/images/6x.jpg" data-label="Ours (6x)"/>
+                <img src="images/din/images/6x.jpg" data-label="Ours (6x), PSNR: 32.7"/>
                 <img src="images/din/images/ref.jpg" data-label="Reference (3K)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >6x image compression using <i>differentiable indirection</i> compared with uncompressed 3K (1K x 3) reference.</p>
             <div class="juxtapose">
-                <img src="images/din/images/12x.jpg" data-label="Ours (12x)"/>
+                <img src="images/din/images/12x.jpg" data-label="Ours (12x), PSNR: 30.4"/>
                 <img src="images/din/images/ref.jpg" data-label="Reference (3K)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >12x image compression using <i>differentiable indirection</i> compared with uncompressed 3K (1K x 3) reference.</p>
             <div class="juxtapose">
-                <img src="images/din/images/24x.jpg" data-label="Ours (24x)"/>
+                <img src="images/din/images/24x.jpg" data-label="Ours (24x), PSNR: 28.1"/>
                 <img src="images/din/images/ref.jpg" data-label="Reference (3K)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >24x image compression using <i>differentiable indirection</i> compared with uncompressed 3K (1K x 3) reference.</p>
             <div class="juxtapose">
-                <img src="images/din/images/48x.jpg" data-label="Ours (48x)"/>
+                <img src="images/din/images/48x.jpg" data-label="Ours (48x), PSNR: 25.9"/>
                 <img src="images/din/images/ref.jpg" data-label="Reference (3K)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >48x image compression using <i>differentiable indirection</i> compared with uncompressed 3K (1K x 3) reference.</p>
             <div class="juxtapose">
-                <img src="images/din/disney/Disney_ours.jpg" data-label="Ours (5 bilinear lookups + 41 FLOPs)"/>
+                <img src="images/din/disney/Disney_ours.jpg" data-label="Ours (5 bilinear lookups + 41 FLOPs), PSNR: 40+"/>
                 <img src="images/din/disney/Disney_ref.jpg" data-label="Reference (240+ FLOPs)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Disney BRDF approximation using <i>differentiable indirection</i> compared with analytic reference.</p>
             <div class="juxtapose">
-                <img src="images/din/filtering/albedo/ours_12x.jpg" data-label="Ours (12x + Implicit filtering)"/>
+                <img src="images/din/filtering/albedo/ours_12x.jpg" data-label="Ours (12x + Implicit filtering), PSNR: 35.2"/>
                 <img src="images/din/filtering/albedo/ref.jpg" data-label="Reference (Anisotropic filtering)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >12x texture compression (Albedo) and filtering using <i>differentiable indirection</i> compared with uncompressed anisotropic (16spp) filtered textures. Our network uses pixel footprint information to generate appropriately filtered results.</p>
             <div class="juxtapose">
-                <img src="images/din/filtering/albedo/ours_12x.jpg" data-label="Ours (12x + Implicit filtering)"/>
-                <img src="images/din/filtering/albedo/astc_12x.jpg" data-label="ASTC (12x + Nearest filtering)"/>
+                <img src="images/din/filtering/albedo/ours_12x.jpg" data-label="Ours (12x + Implicit filtering), PSNR: 35.2"/>
+                <img src="images/din/filtering/albedo/astc_12x.jpg" data-label="ASTC (12x + Nearest filtering), PSNR: 31.4"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >12x texture compression (Albedo) and filtering using <i>differentiable indirection</i> compared with 12x ASTC compressed nearest-neighbour sampled textures. Our network uses pixel footprint information to generate appropriately filtered results. However, unlike ASTC, our network can simultaneously compress and filter without any additional filtering hardware.</p>
             <div class="juxtapose">
-                <img src="images/din/filtering/normal/normal_ours12x.jpg" data-label="Ours (12x + Implicit filtering)"/>
+                <img src="images/din/filtering/normal/normal_ours12x.jpg" data-label="Ours (12x + Implicit filtering), PSNR: 24.6"/>
                 <img src="images/din/filtering/normal/normal_ref.jpg" data-label="Reference (Anisotropic filtering)"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >12x normal-mapped texture compression and filtering using <i>differentiable indirection</i> compared with uncompressed anisotropic (16spp) filtered textures. Our network uses pixel footprint information to generate appropriately filtered results.</p>
             <div class="juxtapose">
-                <img src="images/din/filtering/normal/normal_ours12x.jpg" data-label="Ours (12x + Implicit filtering)"/>
-                <img src="images/din/filtering/normal/normal_astc12.jpg" data-label="ASTC (12x + Nearest filtering)"/>
+                <img src="images/din/filtering/normal/normal_ours12x.jpg" data-label="Ours (12x + Implicit filtering), PSNR: 24.6"/>
+                <img src="images/din/filtering/normal/normal_astc12.jpg" data-label="ASTC (12x + Nearest filtering), , PSNR: 21.3"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >12x normal-mapped texture compression and filtering using <i>differentiable indirection</i> compared with 12x ASTC compressed nearest-neighbour sampled textures. Our network uses pixel footprint information to generate appropriately filtered results. However, unlike ASTC, our network can simultaneously compress and filter without any additional filtering hardware. Notice ASTC nearest-neighbour samples are much noisier at larger pixel-footprints due to aliasing, but our technique produces better filtered results at similar resource utilization.</p>
             <div class="juxtapose">
-                <img src="images/din/shading/output_sh.jpg" data-label="Ours"/>
-                <img src="images/din/shading/output_shRef.jpg" data-label="Reference"/>
+                <img src="images/din/shading/ours/net_ns.jpg" data-label="Ours, PSNR: 28.3"/>
+                <img src="images/din/shading/ref_ns.jpg" data-label="Reference"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Combined shading (our Disney), and texture filtering (12x compressed albedo and normal maps) using <i>differentiable indirection</i> compared with uncompressd anisotropic textures and analytic Disney shading.</p>
             <div class="juxtapose">
-                <img src="images/din/nerf/ours_low_comp10.jpg" data-label="Ours (89 MB)"/>
-                <img src="images/din/nerf/ref_10.jpg" data-label="Reference (860 MB)"/>
+                <img src="images/din/shading/ours/net_ns.jpg" data-label="Ours, PSNR: 28.3"/>
+                <img src="images/din/shading/astc/net_ns.jpg" data-label="ASTC, PSNR: 23.2"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Combined shading (our Disney), and texture filtering (12x compressed albedo and normal maps) using <i>differentiable indirection</i> compared with ASTC nearest-neighbour sampled textures and analytic Disney shading.</p>
+            <div class="juxtapose">
+                <img src="images/din/nerf/ours_low_comp10.jpg" data-label="Ours (89 MB), PSNR: 31.9"/>
+                <img src="images/din/nerf/ref_10.jpg" data-label="Reference (860 MB), PSNR: 33.1"/>
             </div>
             <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Compressed NeRF representation (89 MB) using <i>differentiable indirection</i> compared with uncompressd voxel representation (860 MB) trained using <i>Direct Voxel</i> technique.</p>
+            <div class="juxtapose">
+                <img src="images/din/nerf/ours_high_comp10.jpg" data-label="Ours (14 MB), PSNR: 30.2"/>
+                <img src="images/din/nerf/mrhe_high_comp10.jpg" data-label="MRHE (14 MB), PSNR: 28.5"/>
+            </div>
+            <p style="text-align:justify; width: 800px; position:relative; right:0px;" >Compressed NeRF representation using <i>differentiable indirection</i> compared with MRHE with with 8-Levels (6 Desne + 2 Hash) + MLP (4-hidden layer 16 wide).</p>
             <script src="https://cdn.knightlab.com/libs/juxtapose/latest/js/juxtapose.min.js"></script>
             <link rel="stylesheet" href="https://cdn.knightlab.com/libs/juxtapose/latest/css/juxtapose.css">
             <style>
