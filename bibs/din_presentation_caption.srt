@@ -1,0 +1,615 @@
+1
+00:00:00,280 --> 00:00:04,880
+Greetings everyone, my name is Sayantan 
+and today I'll present our paper Efficient
+
+2
+00:00:04,880 --> 00:00:08,600
+Graphics Representation with 
+Differentiable Indirection.
+
+3
+00:00:08,600 --> 00:00:12,520
+This is a work in collaboration with 
+Carl Marshall, Derek Nowrouzezahrai,
+
+4
+00:00:12,520 --> 00:00:21,520
+Zhao Dong and Zhengqin Li.
+Let us start with what
+
+5
+00:00:21,520 --> 00:00:25,600
+differentiable indirection is.
+So differentiable indirection is very
+
+6
+00:00:25,600 --> 00:00:29,960
+much like pointer indirection, where we query 
+a location using an index or an address
+
+7
+00:00:30,640 --> 00:00:35,720
+which stores the address to the next location
+which contains the final output.
+
+8
+00:00:35,720 --> 00:00:42,840
+However, in our case we learn these 
+pointer values using gradient descent.
+
+9
+00:00:42,840 --> 00:00:48,040
+Next, we look at why one should be excited 
+to use differentiable indirection.
+
+10
+00:00:48,040 --> 00:00:52,880
+The first reason is efficiency.
+Compared to Multi-layered perceptrons
+
+11
+00:00:52,880 --> 00:00:56,320
+our technique is order of magnitude 
+more compute efficient,
+
+12
+00:00:56,320 --> 00:01:02,240
+and compared to feature grid representations, we 
+are order of magnitude more space efficient.
+
+13
+00:01:02,240 --> 00:01:07,080
+Another reason to use to differentiable 
+indirection is its flexibility. We may use the
+
+14
+00:01:07,080 --> 00:01:12,200
+technique in a variety applications such as
+Signed Distance Field representations,
+
+15
+00:01:12,200 --> 00:01:15,360
+texture compression,
+Texture filtering,
+
+16
+00:01:15,360 --> 00:01:21,440
+Complex BRDFs,
+and for compressing radiance fields.
+
+17
+00:01:21,440 --> 00:01:25,960
+Not only that, but our technique is also very 
+generic and potentially extends to applications
+
+18
+00:01:25,960 --> 00:01:28,800
+beyond graphics.
+Finally,
+
+19
+00:01:28,800 --> 00:01:35,120
+our technique exhibits properties of adaptive
+spatial resolution using a single indirection.
+
+20
+00:01:35,120 --> 00:01:39,200
+In contrast, tree based representations 
+such as an oct-tree or a kd-tree
+
+21
+00:01:39,200 --> 00:01:44,600
+require several levels of indirections 
+to produce good quality results.
+
+22
+00:01:44,600 --> 00:01:48,160
+This translates to our representation 
+being more memory coherent compared
+
+23
+00:01:48,160 --> 00:01:53,400
+to tree-based representations.
+So to summarize, our technique is adaptive,
+
+24
+00:01:53,400 --> 00:01:59,840
+efficient and flexible, with wide variety 
+of applications in graphics and beyond.
+
+25
+00:01:59,840 --> 00:02:03,200
+Next, we look at the technical details 
+of differentiable indirection.
+
+26
+00:02:03,200 --> 00:02:08,480
+At minimum, our technique requires two arrays.
+We call the first array storing the
+
+27
+00:02:08,480 --> 00:02:11,240
+pointers as primary,
+and the second array,
+
+28
+00:02:11,240 --> 00:02:17,400
+storing the output values, as cascaded.
+In the forward pass, we first query the primary
+
+29
+00:02:17,400 --> 00:02:21,960
+array with an input coordinate "x",
+and fetch the cells bounding the
+
+30
+00:02:21,960 --> 00:02:25,840
+query location.
+We pass the cell values
+
+31
+00:02:25,840 --> 00:02:30,920
+through a constraining non-linearity F.
+The purpose of the non-linearity is to bound
+
+32
+00:02:30,920 --> 00:02:35,640
+the output values between 0 to 1 such that 
+it points to a valid memory location in the
+
+33
+00:02:35,640 --> 00:02:39,520
+cascaded array.
+At this juncture,
+
+34
+00:02:39,520 --> 00:02:43,080
+we note the constraining non-linearity 
+can be baked directly into the array cells
+
+35
+00:02:43,080 --> 00:02:48,720
+during inference for additional efficiency.
+Since the output of the array-cells are bounded,
+
+36
+00:02:48,720 --> 00:02:52,560
+the baked-in values can be easily 
+quantized for more efficiency.
+
+37
+00:02:52,560 --> 00:02:57,560
+Both these optimizations are 
+extensively used in our applications.
+
+38
+00:02:57,560 --> 00:03:00,600
+And finally, we interpolate the 
+adjacent cells to obtain,
+
+39
+00:03:00,600 --> 00:03:06,280
+the pointer value "y". Although we use linear 
+interpolants, we note that any higher order
+
+40
+00:03:06,280 --> 00:03:13,360
+interpolant may be suitable in this context as 
+long as the interpolant is differentiable.
+
+41
+00:03:13,360 --> 00:03:17,280
+Next, we use the pointer "y" 
+to query the cascaded array.
+
+42
+00:03:17,280 --> 00:03:23,000
+We again fetch bounding cells and interpolate 
+the values to obtain the final output.
+
+43
+00:03:23,000 --> 00:03:26,280
+For the backward pass, we compare 
+the output with the target
+
+44
+00:03:26,280 --> 00:03:29,680
+and compute a loss which we then use for 
+backpropagation through the arrays.
+
+45
+00:03:30,520 --> 00:03:34,200
+We compute the gradient of the 
+loss w.r.t the output and
+
+46
+00:03:34,200 --> 00:03:37,120
+at the first node, we multiply 
+the incoming gradient with
+
+47
+00:03:37,120 --> 00:03:43,800
+another gradient w.r.t. cell's content. This 
+updates the cells in the cascaded array.
+
+48
+00:03:43,800 --> 00:03:47,560
+Note that, computing this gradient is 
+not unique to our technique; In fact,
+
+49
+00:03:47,560 --> 00:03:52,200
+several prior work rely on this gradient 
+to learn feature grid representations.
+
+50
+00:03:52,200 --> 00:03:55,040
+However, our technique uses 
+a second set of gradient
+
+51
+00:03:55,040 --> 00:04:00,040
+w.r.t the input coordinate or the 
+pointer value "y". This gradient is
+
+52
+00:04:00,040 --> 00:04:06,280
+used for backpropagation and for 
+updating the primary array.
+
+53
+00:04:06,280 --> 00:04:10,920
+At the second node, following a similar recipe, 
+we multiply the incoming gradient with another
+
+54
+00:04:10,920 --> 00:04:15,360
+gradient w.r.t the array cells.
+Finally, the other gradient w.r.t.
+
+55
+00:04:15,360 --> 00:04:19,920
+input coordinates can be used for 
+multi-level indirection, if desired.
+
+56
+00:04:19,920 --> 00:04:24,720
+With this we conclude the technical 
+summary of differentiable indirection.
+
+57
+00:04:24,720 --> 00:04:29,600
+Next, we look at an intuitive explanation 
+of differentiable indirection.
+
+58
+00:04:29,600 --> 00:04:33,520
+We illustrate this in a 1D setting 
+using a simple 1D array.
+
+59
+00:04:33,520 --> 00:04:37,200
+We begin by representing the 
+array content as a histogram.
+
+60
+00:04:37,200 --> 00:04:42,800
+To obtain a continuous output, we interpolate 
+the adjacent cells in the array as shown.
+
+61
+00:04:42,800 --> 00:04:48,360
+Next, we visualize the two gradients we 
+compute at each node during backpropagation
+
+62
+00:04:48,360 --> 00:04:51,680
+The first gradient w.r.t 
+to array cell contents,
+
+63
+00:04:51,680 --> 00:04:55,160
+and the second w.r.t. to 
+array input coordinates.
+
+64
+00:04:55,160 --> 00:04:59,400
+The purpose of the first gradient is 
+to update the array values while
+
+65
+00:04:59,400 --> 00:05:05,160
+the second gradient is used to learn 
+pointer values in the primary array.
+
+66
+00:05:05,160 --> 00:05:08,640
+On our histogram, we represent the 
+gradient w.r.t. to the cell values
+
+67
+00:05:08,640 --> 00:05:11,960
+using the vertical blue arrows 
+as shown on left, while
+
+68
+00:05:11,960 --> 00:05:17,280
+the gradients w.r.t. to the input coordinate 
+is shown in orange with horizontal arrows.
+
+69
+00:05:17,280 --> 00:05:20,400
+Let us take a moment to 
+analyze the two gradients.
+
+70
+00:05:20,400 --> 00:05:24,000
+The gradient w.r.t to the cell 
+content, indicated by blue arrows,
+
+71
+00:05:24,000 --> 00:05:28,520
+adjusts the cell heights in the histogram.
+But the gradient with respect to input coordinate
+
+72
+00:05:28,520 --> 00:05:39,000
+y is trying to adjust the cell widths.
+Let's look more closely at the second gradient.
+
+73
+00:05:39,000 --> 00:05:45,680
+On this slide, we highlight the intention to 
+move the cell boundaries using orange arrows.
+
+74
+00:05:45,680 --> 00:05:51,920
+We also represent a hypothetical array 
+in red with variable cell boundaries.
+
+75
+00:05:51,920 --> 00:05:56,880
+In such case, the gradients represented 
+by the orange arrows should move the cell
+
+76
+00:05:56,880 --> 00:06:04,440
+boundaries on the red array as shown.
+In practice, the information regarding the
+
+77
+00:06:04,440 --> 00:06:09,120
+cell boundaries is stored as pointers in the 
+primary array. The primary and the cascaded
+
+78
+00:06:09,120 --> 00:06:14,400
+array combined, represents the adaptive resolution 
+as illustrated by the hypothetical red array.
+
+79
+00:06:14,400 --> 00:06:17,760
+With this we conclude our explanation 
+regarding adaptive resolution in
+
+80
+00:06:17,760 --> 00:06:22,720
+differentiable indirection.
+Next, we look at a few exemplary
+
+81
+00:06:22,720 --> 00:06:27,800
+uses of differentiable indirection.
+Our technique is useful for compact SDF
+
+82
+00:06:27,800 --> 00:06:34,320
+representation where we use a simple network 
+composed of a 3D primary and 3D cascaded array.
+
+83
+00:06:34,320 --> 00:06:38,760
+We can also use it for texture compression 
+where the network is composed of a 2D
+
+84
+00:06:38,760 --> 00:06:42,960
+primary and 4D cascaded array. 
+We noticed from our experiments
+
+85
+00:06:42,960 --> 00:06:48,840
+that a higher dimensional cascaded array 
+yields better quality compression.
+
+86
+00:06:48,840 --> 00:06:51,840
+With a small modification to our 
+compression only network, we can
+
+87
+00:06:51,840 --> 00:06:57,720
+jointly treat both compression and filtering.
+This technique is useful for real-time rendering
+
+88
+00:06:57,720 --> 00:07:02,600
+where we no longer need to have separate 
+hardware for both compression and filtering.
+
+89
+00:07:02,600 --> 00:07:07,440
+In the context of shading, we can use our 
+technique to represent the Isotropic GGX function,
+
+90
+00:07:07,440 --> 00:07:12,080
+used for modelling glossy surfaces.
+Similarly, we can also model a complex
+
+91
+00:07:12,080 --> 00:07:15,800
+BRDF such as Disney using our technique 
+while being more efficient to evaluate
+
+92
+00:07:15,800 --> 00:07:20,840
+compared to the reference implementation.
+And finally, we apply our technique to radiance
+
+93
+00:07:20,840 --> 00:07:25,080
+field compression where we compress regular 
+grids storing density and view dependent RGB
+
+94
+00:07:25,080 --> 00:07:30,680
+using two sets of 3D indirections.
+Next, we discuss empirical evidence of
+
+95
+00:07:30,680 --> 00:07:34,920
+efficiency, based on an example.
+We illustrate the efficiency of our
+
+96
+00:07:34,920 --> 00:07:38,920
+technique by approximating isotropic 
+GGX, which is a 2D function with a highly
+
+97
+00:07:38,920 --> 00:07:42,880
+non-linear scalar output.
+Since it is a 2D function,
+
+98
+00:07:42,880 --> 00:07:48,360
+we visualize the function as monochromatic 
+texture containing HDR values.
+
+99
+00:07:48,360 --> 00:07:54,120
+Such function is often used for shading 
+glossy objects as shown on the right.
+
+100
+00:07:54,120 --> 00:07:58,440
+In this context, we compare and 
+approximate Isotropic GGX using a
+
+101
+00:07:58,440 --> 00:08:03,120
+variety of neural techniques such as
+multi-layered perceptrons,
+
+102
+00:08:03,120 --> 00:08:09,040
+a single level interpolated lookup,
+A combination of single level lookup and MLP
+
+103
+00:08:09,040 --> 00:08:14,880
+and finally differentiable indirection.
+For this task differentiable indirection
+
+104
+00:08:14,880 --> 00:08:21,600
+requires 1 Kilobyte of parameter space, 36 FLOPs 
+of compute and 16 bytes of memory transfer.
+
+105
+00:08:21,600 --> 00:08:26,560
+Compared to ours, an MLP only network requires 
+4 times more parameter space and 2 orders of
+
+106
+00:08:26,560 --> 00:08:32,800
+magnitude more compute and bytes transfer.
+Whereas a single level grid requires fewer
+
+107
+00:08:32,800 --> 00:08:37,240
+compute and byte transfer, the benefits 
+are outweighed by the enormous parameter
+
+108
+00:08:37,240 --> 00:08:44,360
+space required by a single level lookup.
+Finally, a combination of MLP and lookup strikes
+
+109
+00:08:44,360 --> 00:08:51,960
+a better balance across the three criteria, but 
+overall, our technique still performs better.
+
+110
+00:08:51,960 --> 00:08:57,640
+Next, we illustrate the efficiency of our 
+technique using a few more examples.
+
+111
+00:08:57,640 --> 00:09:05,280
+For SDFs, we represent 12 GB worth 
+of sample points in just 24 MB.
+
+112
+00:09:05,280 --> 00:09:08,400
+Then for texture compression, our 
+scheme can compress several times
+
+113
+00:09:08,400 --> 00:09:14,000
+the raw size of an rgb texure.
+For real-time applications, we may
+
+114
+00:09:14,000 --> 00:09:19,640
+also use it for joint texture compression 
+and filtering using a single network.
+
+115
+00:09:19,640 --> 00:09:25,160
+In the context of shading, we can efficiently 
+approximate Disney BRDF by replacing 200+
+
+116
+00:09:25,160 --> 00:09:30,680
+FLOPs of compute with few lookups.
+Finally, differentiable indirection
+
+117
+00:09:30,680 --> 00:09:37,200
+can compress pre-trained radiance 
+fields by orders of magnitude.
+
+118
+00:09:37,200 --> 00:09:49,680
+The video collage show differentiable indirection 
+in action for a variety of applications.
+
+119
+00:09:49,680 --> 00:09:53,320
+Thus we end our presentation 
+with the following conclusion:
+
+120
+00:09:53,320 --> 00:09:55,400
+that is,
+ifferentiable indirection
+
+121
+00:09:55,400 --> 00:09:59,960
+is an adaptive, highly efficient and flexible 
+neural primitive with various applications
+
+122
+00:09:59,960 --> 00:10:06,280
+in the graphics and potentially beyond.
+Thank you for listening to our presentation
+
+123
+00:10:06,280 --> 00:10:12,520
+and please check our website for more 
+results and videos.
+
