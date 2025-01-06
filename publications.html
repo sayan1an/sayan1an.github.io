@@ -29,7 +29,28 @@
         </div>
 
         <div class="content">
-            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f; text-align: center; margin-bottom: 4px;">Efficient Graphics Representation with Differentiable Indirection</h2>
+            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f; text-align: center; margin-bottom: 4px;">Efficient Neural Graphics</h2>
+            <h2 class="content-subhead" style="margin-top: 0px; text-align: center; font-size: medium;margin-bottom: 2px;">Doctoral dissertation, Electrical and Computer Engineering, McGill University</h2>
+            <h2 class="content-subhead" style="margin-top: 0px; text-align: center; font-size: medium;margin-bottom: 8px;"><b style="color:#001f3f;">Sayantan Datta</b></h2>
+            <div class="pure-g" id=“PhdThesis2024”>
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <iframe style="border-radius: 10px;" width="403" height="227" src="https://www.youtube.com/embed/uUY9zyb6iJE" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+                <div class="pure-u-1 pure-u-md-1-2">
+                    <h2 class="content-subhead" style="margin-top: 0px;margin-bottom: 3px; text-align: center;">Abstract</h2>
+                    <p style="overflow-y: scroll;overflow-x: hidden; height: 178px;  margin-top:1px; margin-left: 15px; scrollbar-width: thin;margin-bottom:0px;">Rapid increase in computational power have propelled both computer graphics and machine learning toward achieving increasingly complex objectives. The two fields have experienced a cross-pollination of ideas and technical expertise, advancing them collectively. Neural graphics explores the application of machine learning techniques in various aspects of computer graphics, including rendering, animation, view synthesis, and other visual tasks. It utilizes learned techniques to enhance traditional computer generated imagery (CGI) and visual content creation, while also enabling new pipelines for non-experts to create and consume immersive graphics experiences. The aim of neural graphics is to harness the power of data-driven models for enhancing bidirectional interactions between simulations and the real-world across various applications, from video games and virtual reality to computer aided design and digital art. These applications require efficient algorithms and paradigms to address their ever increasing computational demands.
+                    </br></br>                         
+                    &emsp;Efficiency is crucial for applications that must operate within strict energy budgets while maintaining desired performance and quality levels. Many real-time graphics applications demand precise refresh rates of 60 or 90 Hz, necessitating the development of specially crafted algorithms to meet the performance and efficiency targets. Efficient algorithms not only enhance existing applications but also enable new ones that were previously impractical due to energy or performance constraints. At its core, energy is essential for processing data through arithmetic manipulations or moving data between storage and processing elements. Often, the latter requires significantly more energy, and achieving maximum efficiency requires balancing these two aspects. In modern devices, memory operations are slower than arithmetic operations, and the scaling of memory subsystems lags behind arithmetic units with each new hardware generation. Consequently, more algorithms are becoming bottlenecked due to memory constraints rather than compute limitations. Hence, an efficient algorithm should not only require fewer computations but also minimize data movement, known as bandwidth. While neural networks have played a pivotal role in many graphics applications, their direct application in graphics may lead to inefficiencies due to their substantial bandwidth and compute requirements. 
+                    </br></br> 
+                    &emsp;This dissertation systematically addresses efficiency challenges by taking a bottomup approach at three levels: primitive, network, and application levels. Any efficiency improvement at a lower level permeates through the levels above. At the first level, we introduce a new primitive called differentiable indirection, which can be used to construct more complex networks or be combined with other neural primitives. Our novel primitive is more compact and intrinsically more compute and bandwidth efficient compared to other primitives, such as multilayer perceptrons or neural fields. It has been tested across various graphics tasks, including geometry representation, shading, texturing, radiance fields, and holds potential for applications beyond graphics. Moving to the network level, we demonstrate how to optimize a convolutional neural network to minimize bandwidth requirements, making it suitable for real-time graphics applications like shadow synthesis. Finally, at the application level, we optimize our pipeline to utilize smaller and more efficient networks in the context of shadow synthesis and soft-body animation. For shadow synthesis, we leverage domain knowledge to fine-tune input features, ensure more robust training for temporal stability, and perform network pruning based on the application environment. In the realm of soft-body simulation, we employ dimensionality reduction to develop a compact, reduced-space neural operator for the rapid synthesis of latent temporal trajectories.</p>
+                    <p style="margin-top:0px; margin-left: 15px;">
+                    [<a href="https://drive.google.com/file/d/161zcTz1Obb424yPoY68M7iok9jCWUiot/view?usp=sharing" style="color:#0074D9; font-size: 1.0em; font-weight: bold;text-decoration: none;">Thesis</a>]
+                    [<a href="bibs/phd.bib" style="color:#0074D9; font-size: 1.0em; font-weight: bold;text-decoration: none;">Bibtex</a>]
+                    </p>
+                </div>
+            </div>
+
+            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f; text-align: center; margin-bottom: 4px;">Efficient Graphics Representation with Differentiable Indirection</h2>
             <h2 class="content-subhead" style="margin-top: 0px; text-align: center; font-size: medium;margin-bottom: 2px;">ACM/SIGGRAPH Asia 2023 Conference Proceedings</h2>
             <h2 class="content-subhead" style="margin-top: 0px; text-align: center; font-size: medium;margin-bottom: 8px;"><b style="color:#001f3f;">Sayantan Datta</b>, Carl Marshall, Derek Nowrouzezahrai, Zhao Dong, Zhengqin Li</h2>
             <div class="pure-g">
@@ -47,7 +68,7 @@
                 </div>
             </div>
 
-            <h2 class="content-subhead" style="margin-top: 10px;color:#001f3f; text-align: center; margin-bottom: 4px;">Adaptive Dynamic Global Illumination</h2>
+            <h2 class="content-subhead" style="margin-top: 20px;color:#001f3f; text-align: center; margin-bottom: 4px;">Adaptive Dynamic Global Illumination</h2>
             <h2 class="content-subhead" style="margin-top: 0px; text-align: center; font-size: medium;margin-bottom: 2px;">High Performance Graphics 2022 Poster</h2>
             <h2 class="content-subhead" style="margin-top: 0px; text-align: center; font-size: medium;margin-bottom: 8px;"><b style="color:#001f3f;">Sayantan Datta</b>, Negar Goli, Jerry Zhang</h2>
             <div class="pure-g">
